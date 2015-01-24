@@ -1,0 +1,2 @@
+#!/bin/bash
+exe=`dmenu_run -p 'Launch:' -fn 'sans-16'` && eval "exec $exe"

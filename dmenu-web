@@ -1,0 +1,15 @@
+#!/bin/bash
+
+SEARCH_ENGINE="https://duckduckgo.com/?q="
+
+q="$(echo | dmenu -fn 'sans-16' -p "Search the Web:")"
+
+if [ -z "$q" ]; then
+    exit 0
+elif [[ $q =~ ^https?:\/\/ ]]; then
+    x-www-browser "${q}"
+elif [[ $q =~ (\.co\.uk|\.com|\.net|.io)$ ]]; then
+    x-www-browser "${q}"
+else
+    x-www-browser "${SEARCH_ENGINE}${q}"
+fi
